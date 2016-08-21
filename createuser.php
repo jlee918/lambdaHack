@@ -22,6 +22,7 @@ try {
 
   $user = "{ \"user\": {
         \"name\": \"$name\", \"email\":\"$email\"}}";
+
   //$user = array('user' => array('name' => $name, 'email' => $email));
 
 

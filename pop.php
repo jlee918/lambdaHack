@@ -11,6 +11,7 @@ $username  = "mariya.pak@lambdasolutions.net"; // replace this with your registe
 $token     = "drv5UZaRc7A8WcXwWErssQ6GIEgxIwLO8xiPPYe6"; // replace this with your token
 
 $client = new ZendeskAPI($subdomain);
+
 $client->setAuth('basic', ['username' => $username, 'token' => $token]);
 
 try {
