@@ -16,10 +16,12 @@ $client->setAuth('basic', ['username' => $username, 'token' => $token]);
 try {
 	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/organizations.json' ;
 	$ch = curl_init($url);
-	// Cannot figure out a way to output a "multi line text" type variable...
-	// $address = $street;
+	// TODO: how to output a "multi line text" type variable...
+	//$address = "$street\n$city\n$state\n$country\n$postal";
+	//echo $address;
+
 	$data = "{ \"organization\": {
-				\"name\": \"United Oil & Gas, Singapore.\", \"organization_fields\": {\"account_owner\":\"$ownerId\",\"phone_number\":\"$phone\",\"website\":\"$website\"}}}";
+				\"name\": \"$accountname\", \"organization_fields\": {\"account_owner\":\"$ownerId\",\"phone_number\":\"$phone\",\"website\":\"$website\"}}}";
 
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json"));
