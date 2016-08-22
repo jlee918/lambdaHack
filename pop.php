@@ -22,7 +22,7 @@ try {
 	//echo $address;
 
 	$data = "{ \"organization\": {
-				\"name\": \"$accountname\", \"organization_fields\": {\"account_owner\":\"$ownerId\",\"phone_number\":\"$phone\",\"website\":\"$website\"}}}";
+				\"name\": \"$accountname\", \"organization_fields\": {\"account_owner\":\"$ownerId\", \"phone_number\":\"$phone\",\"website\":\"$website\"}}}";
 
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json"));

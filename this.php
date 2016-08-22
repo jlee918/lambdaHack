@@ -29,6 +29,7 @@ foreach ($response->records as $record) {
     $country = $record->BillingCountry; // for Singapore outs nothing
     $phone = $record->Phone;
 
+echo $street;
 
 }
 
@@ -40,13 +41,9 @@ $responseCon = $mySforceConnection->query($queryCon);
 
 
 foreach ($responseCon->records as $record) {
-    $email = $record->Email. "\n" ;
-    $name = $record->Name.  "\n" ;
+    $email = $record->Email;
+    $name = $record->Name;
 
 }
-
-
-//echo $email;
-//echo $name;
 
 ?>

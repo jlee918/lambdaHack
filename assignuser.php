@@ -15,14 +15,14 @@ $client->setAuth('basic', ['username' => $username, 'token' => $token]);
 
 try {
 
-	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/users.json' ;
+	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/organization_memberships.json' ;
 	$ch = curl_init($url);
-  $user = "{ \"user\": {
-        \"name\": \"$name\", \"email\":\"$email\"}}";
+  $member = "{ \"organization_membership\": {
+        \"user_id\": \"9639084627\", \"organization_id\":\"9828185767\"}}";
 
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json"));
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $user);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $member);
   curl_setopt($ch, CURLOPT_VERBOSE, true);
   curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . "lambdasecret1");
 
