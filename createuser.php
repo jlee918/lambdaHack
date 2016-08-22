@@ -7,13 +7,16 @@ include("vendor/autoload.php");
 use Zendesk\API\HttpClient as ZendeskAPI;
 
 $subdomain = "lambdasolutionsdev.zendesk.com";
-$username  = "mariya.pak@lambdasolutions.net"; // replace this with your registered email
-$token     = "drv5UZaRc7A8WcXwWErssQ6GIEgxIwLO8xiPPYe6"; // replace this with your token
+$username  = "mariya.pak@lambdasolutions.net";
+$token     = "drv5UZaRc7A8WcXwWErssQ6GIEgxIwLO8xiPPYe6";
 
 $client = new ZendeskAPI($subdomain);
 $client->setAuth('basic', ['username' => $username, 'token' => $token]);
 
 try {
+
+  // CREATE NEW USER
+  // $name and $email from this.php
 
 	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/users.json' ;
 	$ch = curl_init($url);

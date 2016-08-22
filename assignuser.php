@@ -7,18 +7,20 @@ include("vendor/autoload.php");
 use Zendesk\API\HttpClient as ZendeskAPI;
 
 $subdomain = "lambdasolutionsdev.zendesk.com";
-$username  = "mariya.pak@lambdasolutions.net"; // replace this with your registered email
-$token     = "drv5UZaRc7A8WcXwWErssQ6GIEgxIwLO8xiPPYe6"; // replace this with your token
+$username  = "mariya.pak@lambdasolutions.net";
+$token     = "drv5UZaRc7A8WcXwWErssQ6GIEgxIwLO8xiPPYe6";
 
 $client = new ZendeskAPI($subdomain);
 $client->setAuth('basic', ['username' => $username, 'token' => $token]);
 
 try {
 
+  // ASSIGN USER TO ORGANIZATION
+
 	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/organization_memberships.json' ;
 	$ch = curl_init($url);
   $member = "{ \"organization_membership\": {
-        \"user_id\": \"9639084627\", \"organization_id\":\"9828185767\"}}";
+        \"user_id\": \"9639084627\", \"organization_id\":\"9949499828\"}}";
 
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json"));

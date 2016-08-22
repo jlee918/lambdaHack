@@ -16,31 +16,24 @@ $client->setAuth('basic', ['username' => $username, 'token' => $token]);
 
 try {
 
-	// CREATE ORGANIZATION
-	// $accountname, $owner, $address, $phone, $website from this.php
+	// UPDATE ORGANIZATION WITH PACKAGE_TYPE FROM PRODUCT
+	// $product from this.php
 
-	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/organizations.json' ;
+	$url = 'https://lambdasolutionsdev.zendesk.com/api/v2/organizations/9949499828.json' ;
 	$ch = curl_init($url);
-	//$address = $street . "\n" . $city ."\n". $state;
-	//echo $address;
+	echo $product;
+	$prod = "{ \"organization\": {
+				\"id\": \"9949499828\", \"organization_fields\": {\"package_type\":\"$product\"}}}";
 
-	// TODO: how to output a "multi line text" type variable...
-	//$data = "{ \"organization\": {
-	//			\"name\": \"$accountname\", \"organization_fields\": {\"account_owner\":\"$owner\", \"address\": \"$address\", \"phone_number\":\"$phone\",\"website\":\"$website\"}}}";
-
-	$data = "{ \"organization\": {
-				\"name\": \"$accountname\", \"organization_fields\": {\"account_owner\":\"$owner\", \"phone_number\":\"$phone\",\"website\":\"$website\"}}}";
-
-	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json"));
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $prod);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
     curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . "lambdasecret1");
 
     $response = curl_exec($ch);
     curl_close($ch);
-
-
 
 
 } catch (\Zendesk\API\Exceptions\ApiResponseException $e) {
